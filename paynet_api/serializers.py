@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 class TransactionFieldsSerializer(serializers.Serializer):
     clientid = serializers.CharField()
-    amount = serializers.IntegerField()
+    amount = serializers.IntegerField(required=False, null=True)
 
 
 class TransactionParamsSerializer(serializers.Serializer):
