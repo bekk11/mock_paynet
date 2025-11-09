@@ -81,7 +81,7 @@ class PerformTransactionView(generics.GenericAPIView):
         # Build response data
         response_data = {
             "jsonrpc": "2.0",
-            "id": str(uuid.uuid4()),
+            "id": validated_data['id'],
             "result": {
                 "transactionId": str(int(datetime.now().timestamp() * 1000)),
                 "status": "0",

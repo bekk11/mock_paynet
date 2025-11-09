@@ -16,7 +16,7 @@ class TransactionParamsSerializer(serializers.Serializer):
 class PaynetRequestSerializer(serializers.Serializer):
     jsonrpc = serializers.CharField()
     method = serializers.CharField()
-    token = serializers.CharField(allow_blank=True)
+    token = serializers.CharField(allow_blank=True, allow_null=True, required=False)
     id = serializers.IntegerField()
     params = TransactionParamsSerializer()
 
@@ -38,5 +38,5 @@ class TransactionResultSerializer(serializers.Serializer):
 
 class PaynetResponseSerializer(serializers.Serializer):
     jsonrpc = serializers.CharField()
-    id = serializers.CharField()
+    id = serializers.IntegerField()
     result = TransactionResultSerializer()
